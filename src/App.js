@@ -1,10 +1,9 @@
 import React from 'react';
 import {useState} from 'react'
-// import './App.css';
 
 const App = () => {
   const [numberOfClicks, setNumberOfClicks] = useState(0)
-  const [colorHeader, setColorHeader] = useState('red')
+  const [colorHeader, setColorHeader] = useState('purple')
 
   const onClickHandler = () => {
      const newValue = numberOfClicks + 1
@@ -16,11 +15,12 @@ const App = () => {
      setNumberOfClicks(newValue)
   }
   const onClickHandlerColor = () => {
-     const newColor = (Math.random() > 0.5) ? 'red' : 'green'
+     const newColor = (Math.random() > 0.8) ? 'red' : 'orange'
      setColorHeader(newColor)
   }
   const style = {
-     color: colorHeader
+   fontSize: 20px,
+   color: colorHeader
   }
   return (
      <div>
