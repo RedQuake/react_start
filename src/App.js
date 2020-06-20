@@ -1,26 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {useState} from 'react'
+// import './App.css';
 
-function App() {
+const App = () => {
+  const [numberOfClicks, setNumberOfClicks] = useState(0)
+  const [colorHeader, setColorHeader] = useState('red')
+
+  const onClickHandler = () => {
+     const newValue = numberOfClicks + 1
+     setNumberOfClicks(newValue)
+  }
+
+  const onClickHandlerMinus = () => {
+     const newValue = numberOfClicks - 1
+     setNumberOfClicks(newValue)
+  }
+  const onClickHandlerColor = () => {
+     const newColor = (Math.random() > 0.5) ? 'red' : 'green'
+     setColorHeader(newColor)
+  }
+  const style = {
+     color: colorHeader
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+     <div>
+        <h1 style={style}>{'Clicked   ' + numberOfClicks}</h1>
 
+        <button onClick={onClickHandler}>+++</button>
+        <button onClick={onClickHandlerMinus}>---</button>
+        <button onClick={onClickHandlerColor}>Color</button>
+
+     </div>
+  )
+
+
+}
 export default App;
